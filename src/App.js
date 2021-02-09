@@ -15,8 +15,13 @@ class App extends Component {
   render() {   
     return (
       <div>
-        <input placeholder="Title" onChange={event => this.setState({title: event.target.value})} />
-        <input placeholder="Description" onChange={event => this.setState({title: event.target.value})} />
+        <input 
+          placeholder="Title" 
+          onChange={event => this.setState({title: event.target.value})} 
+          />
+        <input 
+          placeholder="Description" 
+          onChange={event => this.setState({description: event.target.value})} />
         <button onClick={this.createTodo}>
                   Save!
         </button>
