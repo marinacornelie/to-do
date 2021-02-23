@@ -11,7 +11,7 @@ class App extends Component {
 
   createTodo = () => {
       axios.post('http://localhost:8080/api/v1/todos', {title: this.state.title, description: this.state.description}).then(
-        (response) => {
+        () => {
         this.getTodo()
         this.setState({title: '', description:''})
         }
