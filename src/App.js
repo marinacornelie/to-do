@@ -13,6 +13,7 @@ class App extends Component {
       axios.post('http://localhost:8080/api/v1/todos', {title: this.state.title, description: this.state.description}).then(
         (response) => {
         this.getTodo()
+        this.setState({title: '', description:''})
         }
       )
   }
@@ -35,10 +36,12 @@ class App extends Component {
       <div>
         <input 
           placeholder="Title" 
+          value = {this.state.title}
           onChange={event => this.setState({title: event.target.value})} 
           />
         <input 
           placeholder="Description" 
+          value = {this.state.description}
           onChange={event => this.setState({description: event.target.value})} />
         <button onClick={this.createTodo}>
                   Save!
