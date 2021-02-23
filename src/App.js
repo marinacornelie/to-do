@@ -9,7 +9,15 @@ class App extends Component {
   }
 
   createTodo = () => {
-      axios.post ('http://localhost:8080/api/v1/todos', this.state )
+      axios.post('http://localhost:8080/api/v1/todos', this.state)
+  }
+
+  getTodo = () => {
+    axios.get('http://localhost:8080/api/v1/todos').then(
+      (response) => {
+        console.log(response.data)
+      }
+    )
   }
 
   render() {   
@@ -25,8 +33,12 @@ class App extends Component {
         <button onClick={this.createTodo}>
                   Save!
         </button>
-      </div>
-                 
+        <div className="column">
+          <ul>
+          {this.getTodo()}
+          </ul>
+        </div>  
+      </div>              
     )
   }
 }
