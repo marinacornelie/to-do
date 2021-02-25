@@ -27,6 +27,16 @@ class App extends Component {
     )
   }
 
+  deleteTodo = (id) => {
+    axios.delete('http://localhost:8080/api/v1/todos/' + id).then(
+      () => {
+        this.setState((prevState) => ({
+          toDos: prevState.toDos.filter(toDo => toDo.id !== id),
+        }))
+      }
+    )
+  }
+
   componentDidMount = () => {
     this.getTodo();
   }
@@ -48,8 +58,13 @@ class App extends Component {
         </button>
         <div className="column">
           <ul>
-            {this.state.toDos.map((toDos, index) => (
-              <li key={index}>{toDos.title}: {toDos.description}</li> ))}
+            {this.state.toDos.map((toDo, index) => (
+              <li key={index}>
+                {toDo.title}: {toDo.description}
+                <button onClick={() => {this.deleteTodo(toDo.id)}}>
+                  Delete this to do!
+               </button>
+               </li> ))}       
           </ul>
         </div>  
       </div>              
