@@ -12,13 +12,13 @@ class App extends Component {
   createTodo = () => {
       axios.post('http://localhost:8080/api/v1/todos', {title: this.state.title, description: this.state.description}).then(
         () => {
-        this.getTodo()
+        this.getTodos()
         this.setState({title: '', description:''})
         }
       )
   }
 
-  getTodo = () => {
+  getTodos = () => {
     axios.get('http://localhost:8080/api/v1/todos').then(
       (response) => {
         console.log(response.data)
@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.getTodo();
+    this.getTodos();
   }
 
   render() {   
