@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
+import TodoItem from './TodoItem'
 
 class App extends Component {
 
@@ -27,14 +28,10 @@ class App extends Component {
     )
   }
 
-  deleteTodo = (id) => {
-    axios.delete('http://localhost:8080/api/v1/todos/' + id).then(
-      () => {
-        this.setState((prevState) => ({
-          toDos: prevState.toDos.filter(toDo => toDo.id !== id),
-        }))
-      }
-    )
+  removeTodoFromList = (id) => {
+    this.setState((prevState) => ({
+      toDos: prevState.toDos.filter(toDo => toDo.id !== id),
+    }))
   }
 
   componentDidMount = () => {
@@ -58,13 +55,9 @@ class App extends Component {
         </button>
         <div className="column">
           <ul>
-            {this.state.toDos.map((toDo, index) => (
-              <li key={index}>
-                {toDo.title}: {toDo.description}
-                <button onClick={() => {this.deleteTodo(toDo.id)}}>
-                  Delete this to do!
-               </button>
-               </li> ))}       
+            {this.state.toDos.map((toDo, index) => ( 
+              <TodoItem removeTodo={this.removeTodoFromList} key={index} value={toDo}/>
+            ))}       
           </ul>
         </div>  
       </div>              
