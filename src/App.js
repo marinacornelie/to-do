@@ -41,18 +41,24 @@ class App extends Component {
   render() {   
     return (
       <div>
-        <input 
-          placeholder="Title" 
-          value = {this.state.title}
-          onChange={event => this.setState({title: event.target.value})} 
-          />
-        <input 
-          placeholder="Description" 
-          value = {this.state.description}
-          onChange={event => this.setState({description: event.target.value})} />
-        <button onClick={this.createTodo}>
-                  Save!
-        </button>
+        <div onKeyPress={event => {
+            if (event.key === "Enter") {
+              this.createTodo();
+            }
+          }}>
+          <input 
+            placeholder="Title" 
+            value = {this.state.title}
+            onChange={event => this.setState({title: event.target.value})} 
+            />
+          <input 
+            placeholder="Description" 
+            value = {this.state.description}
+            onChange={event => this.setState({description: event.target.value})} />
+          <button onClick={this.createTodo}>
+                    Save!
+          </button>
+        </div>
         <div className="column">
           <ul>
             {this.state.toDos.map((toDo, index) => ( 
