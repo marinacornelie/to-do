@@ -24,13 +24,13 @@ class TodoItem extends Component {
 
 render() {
   return ( 
-    <li>
+    <li className="card">
       <div onClick={this.toggleDescription}>
         {this.props.value.title}
       </div>
-      <div hidden = {!this.state.showDetails}>
+      <span hidden = {!this.state.showDetails}>
         {this.props.value.description}
-      </div>
+      </span>
       <button onClick={() => {this.deleteTodo(this.props.value.id)}}>
         Delete this to do!
       </button>

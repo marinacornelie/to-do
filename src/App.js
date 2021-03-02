@@ -40,8 +40,8 @@ class App extends Component {
 
   render() {   
     return (
-      <div>
-        <div onKeyPress={event => {
+      <div className="container">
+        <div className="column" onKeyPress={event => {
             if (event.key === "Enter") {
               this.createTodo();
             }
