@@ -16,23 +16,24 @@ input, button {
   flex-direction: column;
 }
 
+.limit-width {
+  max-width: 700px;
+}
+
 .card {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.todo-title {
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 li div:hover {
   font-weight: bolder;
   cursor: pointer;
-}
-
-@media screen and (max-width: 768px) {
-  .card {
-    flex-direction: column;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-  }
 }
