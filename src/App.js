@@ -40,7 +40,7 @@ class App extends Component {
 
   render() {   
     return (
-      <div className="container limit-width">
+      <div className="main-container">
         <div className="column" onKeyPress={event => {
             if (event.key === "Enter") {
               this.createTodo();
