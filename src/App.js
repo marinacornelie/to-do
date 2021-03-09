@@ -41,24 +41,27 @@ class App extends Component {
   render() {   
     return (
       <div className="main-container">
+        <h1>
+        Todo List
+        </h1>
         <div className="column" onKeyPress={event => {
             if (event.key === "Enter") {
               this.createTodo();
             }
           }}>
           <input 
-            className="m-1"
-            placeholder="Title" 
+            className="m-1 input is-small"
+            placeholder="Title of new todo" 
             value = {this.state.title}
             onChange={event => this.setState({title: event.target.value})} 
             />
           <input 
-            className="m-1"
-            placeholder="Description" 
+            className="m-1 input is-small"
+            placeholder="Description of new todo" 
             value = {this.state.description}
             onChange={event => this.setState({description: event.target.value})} />
-          <button className="m-1 button is-small" onClick={this.createTodo}>
-                    Save!
+          <button className="m-1 button is-small is-info is-outlined" onClick={this.createTodo}>
+                    Save new todo!
           </button>
         </div>
         <div className="column">

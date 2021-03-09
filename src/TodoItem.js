@@ -17,7 +17,7 @@ class TodoItem extends Component {
 
   toggleDescription = () => {
     this.setState((prevState) => ({
-      showDetails: !prevState.showDetails,
+      showDetails: !prevState.showDetails
     }))
   }
 
@@ -29,9 +29,7 @@ render() {
         <span className="todo-title">
         {this.props.value.title}
         </span>
-        <button className="button is-small" onClick={() => {this.deleteTodo(this.props.value.id)}}>
-        Delete this to do!
-      </button>
+        <button className="delete" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>
       </div>
       <span className="p-1" hidden = {!this.state.showDetails}>
         {this.props.value.description}
