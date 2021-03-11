@@ -24,16 +24,18 @@ class TodoItem extends Component {
 
 render() {
   return ( 
-    <li className="m-1">
-      <div className="p-1 card" onClick={this.toggleDescription}>
-        <span className="todo-title">
-        {this.props.value.title}
-        </span>
-        <button className="delete" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>
-      </div>
-      <span className="p-1" hidden = {!this.state.showDetails}>
+    <li className="m-2">
+      <div className="p-3 card">
+        <div className="is-flex is-justify-content-space-between" onClick={this.toggleDescription}>
+          <span className="todo-title">
+          {this.props.value.title}
+          </span>
+          <button className="delete" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>
+        </div>
+        <span hidden = {!this.state.showDetails}>
         {this.props.value.description}
-      </span>     
+        </span>  
+      </div>
     </li>  
    );
   }

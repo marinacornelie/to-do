@@ -31,19 +31,13 @@ input, button {
   background-color: white;
 }
 
-.card {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-
 .todo-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-li div:hover {
+.todo-title:hover {
   font-weight: bolder;
   cursor: pointer;
 }
@@ -61,9 +55,9 @@ box-shadow: none;
 }
 
 .delete {
-  background-color: hsl(204, 86%, 53%);;
+  background-color: hsl(204, 86%, 53%);
 }
 
 .delete:hover {
-  background-color: #eef6fc;
+  background-color: red;
 }
