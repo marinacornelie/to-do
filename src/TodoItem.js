@@ -27,7 +27,7 @@ render() {
     <li className="m-2">
       <div className="p-3 card">
         <div className="is-flex is-justify-content-space-between" onClick={this.toggleDescription}>
-          <span className="todo-title">
+          <span className={this.state.showDetails ? "todo-title-active" : "todo-title"}>
           {this.props.value.title}
           </span>
           <button className="delete" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>

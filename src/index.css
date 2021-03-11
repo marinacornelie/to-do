@@ -35,9 +35,10 @@ input, button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 
-.todo-title:hover {
+.todo-title-active {
   font-weight: bolder;
   cursor: pointer;
 }
