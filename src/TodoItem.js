@@ -7,12 +7,13 @@ class TodoItem extends Component {
     showDetails: false,
   }
 
-  deleteTodo = (id) => {
+  deleteTodo = (id, e) => {
     axios.delete('http://localhost:8080/api/v1/todos/' + id).then(
       () => {
         this.props.removeTodo(id)
       }
     )
+    e.stopPropagation();
   }
 
   toggleDescription = () => {
@@ -30,7 +31,7 @@ render() {
           <span className={this.state.showDetails ? "todo-title-active" : "todo-title"}>
           {this.props.value.title}
           </span>
-          <button className="delete" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>
+          <button className="delete" onClick={(e) => {this.deleteTodo(this.props.value.id, e)}}></button>
         </div>
         <span hidden = {!this.state.showDetails}>
         {this.props.value.description}

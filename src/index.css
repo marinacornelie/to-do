@@ -62,3 +62,7 @@ box-shadow: none;
 .delete:hover {
   background-color: red;
 }
+
+.delete:active, .delete:focus {
+  background-color: hsl(204, 86%, 53%);
+}

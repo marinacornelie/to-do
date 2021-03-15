@@ -30,7 +30,7 @@ class App extends Component {
 
   removeTodoFromList = (id) => {
     this.setState((prevState) => ({
-      toDos: prevState.toDos.filter(toDo => toDo.id !== id),
+      toDos: prevState.toDos.filter(toDo => toDo.id !== id)
     }))
   }
 
@@ -66,8 +66,8 @@ class App extends Component {
         </div>
         <div className="column">
           <ul>
-            {this.state.toDos.map((toDo, index) => ( 
-              <TodoItem removeTodo={this.removeTodoFromList} key={index} value={toDo}/>
+            {this.state.toDos.map((toDo) => ( 
+              <TodoItem removeTodo={this.removeTodoFromList} key={toDo.id} value={toDo}/>
             ))}       
           </ul>
         </div>  
