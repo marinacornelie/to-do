@@ -7,14 +7,14 @@ class App extends Component {
   state = {
     title: '',
     description: '',
-    toDos: [ ],
+    toDos: [ ]
   }
 
   createTodo = () => {
       axios.post('http://localhost:8080/api/v1/todos', {title: this.state.title, description: this.state.description}).then(
         () => {
         this.getTodos()
-        this.setState({title: '', description:''})
+        this.setState({title:'', description:''})
         }
       )
   }
@@ -58,8 +58,9 @@ class App extends Component {
           <input 
             className="m-1 input is-small"
             placeholder="Description of new todo" 
-            value = {this.state.description}
-            onChange={event => this.setState({description: event.target.value})} />
+            value = {this.state.description} 
+            onChange={event => this.setState({description: event.target.value})} 
+            /> 
           <button className="m-1 button is-small is-info is-outlined" onClick={this.createTodo}>
                     Save new todo!
           </button>
