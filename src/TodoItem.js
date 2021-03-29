@@ -36,17 +36,20 @@ class TodoItem extends Component {
 render() {
   return ( 
     <li className="m-2">
-      <div className="p-3 card">
-        <div className="is-flex is-justify-content-space-between" onClick={this.toggleDescription}>
-          <span className={this.state.showDetails ? "todo-title-active" : "todo-title"}>
-          {this.props.value.title}
-          </span>
-          <input checked={this.state.done} type="checkbox" onChange={(e) => {this.toggleDone(e.target.checked)}}></input>      
+      <div className="p-4 card">
+        <div className="is-flex is-justify-content-space-between">
+          <div>
+            <input className="mr-2" checked={this.state.done} type="checkbox" onChange={(e) => {this.toggleDone(e.target.checked)}}></input>  
+            <span className={this.state.showDetails ? "todo-title-active" : " "}>
+              {this.props.value.title}
+            </span>   
+          </div>
+          <span className={this.state.showDetails ? "todo-arrow up" : "todo-arrow"} onClick={this.toggleDescription}>&#9660;</span>        
         </div>
         <div hidden = {!this.state.showDetails}>
-          <div  className="is-flex is-justify-content-space-between" >
+          <div className="is-flex mt-2">
+            <button className="delete is-small mr-2" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>
             <span>{this.props.value.description}</span>
-            <button className="delete" onClick={() => {this.deleteTodo(this.props.value.id)}}></button>
           </div>  
         </div>
       </div>

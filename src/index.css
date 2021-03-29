@@ -31,16 +31,20 @@ input, button {
   background-color: white;
 }
 
-.todo-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
-
 .todo-title-active {
   font-weight: bolder;
+}
+
+.todo-arrow {
+  color: hsl(204, 86%, 53%);
+  font-size: small;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.todo-arrow.up {
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
 }
 
 input:focus,
@@ -56,7 +60,7 @@ box-shadow: none;
 }
 
 .delete {
-  background-color: hsl(204, 86%, 53%);
+  background-color: black;
 }
 
 .delete:hover {
