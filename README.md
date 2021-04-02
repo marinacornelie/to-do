@@ -1,6 +1,6 @@
 # Todo app
 
-This Todo app is a React app to convert currencies.  
+This Todo app is a React app to keep track of your todo's.
 
 ## Local development
 
